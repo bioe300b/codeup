@@ -1,3 +1,4 @@
+import os
 import json
 import inspect
 import requests
@@ -17,7 +18,7 @@ def getNewGoogleOauthToken():
   global oauth_token
 
   google.colab.auth.authenticate_user()
-  gcloud_out = !gcloud auth print-access-token
+  gcloud_out = os.system('gcloud auth print-access-token')
   oauth_token = gcloud_out[0]
 
 def renewTokenIfOld(oauth_token_info):
