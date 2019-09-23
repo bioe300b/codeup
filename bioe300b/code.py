@@ -35,8 +35,8 @@ def submitCode(question, function):
         function()
     except Exception as e:
         print('Submitted function error. Code was not submitted to server.')
-    print(e)
-    raise e
+        print(e)
+        raise e
 
     URL_GOOGLE_OAUTH_TOKEN = 'https://www.googleapis.com/oauth2/v3/tokeninfo?access_token='
     URL_CODE = 'https://web.stanford.edu/group/bil/cgi-bin/300b/codeHandler.py'
