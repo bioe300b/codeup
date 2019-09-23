@@ -1,3 +1,6 @@
+import os
+os.environ["MLPCONFIGDIR"] = "."
+
 from setuptools import setup, find_packages
 
 setup(  name = 'bioe300b',
