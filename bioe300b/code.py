@@ -1,4 +1,5 @@
 import os
+import subprocess
 import json
 import inspect
 import requests
@@ -18,7 +19,8 @@ def getNewGoogleOauthToken():
   global oauth_token
 
   google.colab.auth.authenticate_user()
-  gcloud_out = os.system('gcloud auth print-access-token')
+  p_gcloud = subprocess.Popen(['gcloud', 'auth', 'print-access-token'], stdout=subprocess.PIPE)
+  gcloud_out = p_gcloud.stdout.read()[0:-1].decode('utf-8')
   oauth_token = gcloud_out[0]
 
 def renewTokenIfOld(oauth_token_info):
