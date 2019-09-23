@@ -29,6 +29,23 @@ def renewTokenIfOld(oauth_token_info):
         getNewGoogleOauthToken()
 
 def submitCode(question, function):
+    """submitCode
+
+    Primary handle to submit code for BioE 300B.
+
+    Usage: submitCode(question, function)
+
+      - question : a number (or string) representing the question being answered
+      - function : the function being passed on
+
+    Note: function passed should be invokable without any arguments: function()
+          This typically involves the use of default values for named parameters.
+
+    Function takes several seconds to execute as it invokes several Google APIs
+      and executes provided function locally on Colaboratory.
+
+    Current implementation is only compatible with Colaboratory.
+    """
 
     # testing function to ensure it runs
     try:
