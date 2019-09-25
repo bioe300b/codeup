@@ -49,7 +49,8 @@ def submitCode(question, function):
 
     # testing function to ensure it runs
     try:
-        function()
+        # function()
+        assert hasattr(function,'__call__'),'ERROR: Function input is not callable. Please check to make sure that you have submitted a function as your second argument'
     except Exception as e:
         print('Submitted function error. Code was not submitted to server.')
         print(e)
