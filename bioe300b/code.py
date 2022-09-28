@@ -57,7 +57,7 @@ def submitCode(question, function):
         raise e
 
     URL_GOOGLE_OAUTH_TOKEN = 'https://www.googleapis.com/oauth2/v3/tokeninfo?access_token='
-    URL_CODE = 'https://web.stanford.edu/class/bioe300b/cgi-bin/hw/codeHandler.py'
+    URL_CODE = 'https://bioe-300b-lti.stanford.edu/code'
 
     # get token info
     if 'oauth_token' not in locals():
