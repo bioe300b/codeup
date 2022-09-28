@@ -82,7 +82,7 @@ def submitCode(question, function):
     f_source = inspect.getsource(function)
 
     # post code
-    reply = requests.post(URL_CODE, data = {'action' : 'submitCode', 'token': oauth_token, 'question': question, 'code' : f_source})
+    reply = requests.post(URL_CODE, json = {'action' : 'submitCode', 'token': oauth_token, 'question': question, 'code' : f_source})
 
     if reply.status_code != 200:
         raise HTTPError(reply.status_code)
@@ -100,7 +100,7 @@ def submitCode(question, function):
     renewTokenIfOld(oauth_token_info)
 
     # post answer
-    reply = requests.post(URL_CODE, data = {'action' : 'submitOutput', 'token' : oauth_token, 'question' : question, 'answer' : retObj_json, 'submitID' : replyObj['submitID']})
+    reply = requests.post(URL_CODE, json = {'action' : 'submitOutput', 'token' : oauth_token, 'question' : question, 'answer' : retObj_json, 'submitID' : replyObj['submitID']})
 
     if reply.status_code != 200:
         raise HTTPError
