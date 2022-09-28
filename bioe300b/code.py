@@ -93,7 +93,7 @@ def submitCode(question, function):
         raise APIError(replyObj['error_text'])
 
     # execute code
-    kwargs = replyObj['kwargs']
+    kwargs = json.loads(replyObj['kwargs'])
     retObj = function(**kwargs)
     retObj_json = json.JSONEncoder().encode(retObj)
 
